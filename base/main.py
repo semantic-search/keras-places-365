@@ -90,7 +90,7 @@ if __name__ == "__main__":
         full_res = predict(file_name, image_id)
         text_res = {
             "image_id": full_res["image_id"],
-            "captions": text_res["captions"]
+            "captions": full_res["captions"]
         }
         producer.send(SEND_TOPIC_FULL, value=json.dumps(full_res))
         producer.send(SEND_TOPIC_TEXT, value=json.dumps(text_res))
