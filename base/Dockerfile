@@ -12,8 +12,6 @@ RUN wget https://raw.githubusercontent.com/csailvision/places365/master/categori
 RUN git clone https://github.com/GKalliatakis/Keras-VGG16-places365
 RUN pip install keras python-dotenv kafka-python redis
 WORKDIR Keras-VGG16-places365
-ENV LC_ALL C.UTF-8
-ENV LANG C.UTF-8
 EXPOSE 8000
 COPY main.py .
 CMD ["python", "main.py"]
