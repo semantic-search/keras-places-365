@@ -19,7 +19,7 @@ REDIS_HOSTNAME = os.getenv("REDIS_HOSTNAME")
 REDIS_PORT = os.getenv("REDIS_PORT")
 REDIS_PASSWORD = os.getenv("REDIS_PASSWORD")
 # kafka prerequisites
-RECEIVE_TOPIC = 'KERAS_BASE'
+RECEIVE_TOPIC = 'KERAS_HYBRID'
 SEND_TOPIC_FULL = "IMAGE_RESULTS"
 SEND_TOPIC_TEXT = "TEXT"
 print("kafka : " + KAFKA_HOSTNAME + ':' + KAFKA_PORT)
@@ -75,7 +75,7 @@ def predict(file_name,image_id):
 if __name__ == "__main__":
     print("shit jere")
     for message in consumer_easyocr:
-        print('xxx--- inside keras base consumer---xxx')
+        print('xxx--- inside keras hybrid consumer---xxx')
         print(KAFKA_HOSTNAME + ':' + KAFKA_PORT)
 
         message = message.value
