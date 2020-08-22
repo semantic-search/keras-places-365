@@ -10,6 +10,8 @@ from json import loads
 import base64
 import os
 import uuid
+import json
+from dotenv import load_dotenv
 from base64 import decodestring
 
 load_dotenv()
@@ -90,7 +92,7 @@ if __name__ == "__main__":
         full_res = predict(file_name, image_id)
         text_res = {
             "image_id": full_res["image_id"],
-            "captions": full_res["captions"]
+            "captions": full_res["labels"]
         }
         producer.send(SEND_TOPIC_FULL, value=json.dumps(full_res))
         producer.send(SEND_TOPIC_TEXT, value=json.dumps(text_res))
