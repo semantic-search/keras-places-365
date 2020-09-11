@@ -26,15 +26,17 @@ def predict(file_name, doc=False):
     scores = output[top5]
     for vals in labels:
         decoded_string_array = vals.decode('UTF-8')
-        array_with_id = decoded_string_array.split(" ")
-        array_with_id.pop()
-        new_labels.append(array_with_id[0])
+        string_array_without_quotes = decoded_string_array.replace(',', '')
+        array_without_quotes = string_array_without_quotes.split(" ")
+        array_without_quotes.pop()
+        array_without_quotes.pop(0)
+        new_labels.append(array_without_quotes)
 
     scores = [float(np_float) for np_float in scores]
 
     if doc:
         response_dict = {
-            "labels": new_labels,
+            "objects": new_labels,
             "score": scores
         }
         os.remove(file_name)
@@ -48,4 +50,3 @@ def predict(file_name, doc=False):
         }
         os.remove(file_name)
         return response_dict
-

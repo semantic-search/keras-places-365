@@ -4,7 +4,6 @@ from kafka import KafkaProducer
 import globals
 import json
 
-
 # Redis initialize
 redis_obj = redis.StrictRedis(
     host=globals.REDIS_HOSTNAME,
