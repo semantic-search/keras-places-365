@@ -34,19 +34,11 @@ def predict(file_name, doc=False):
 
     scores = [float(np_float) for np_float in scores]
 
-    if doc:
-        response_dict = {
-            "objects": new_labels,
-            "score": scores
-        }
-        os.remove(file_name)
-        return response_dict
-    else:
-        response_dict = {
-            "file_name": file_name,
-            "objects": new_labels,
-            "score": scores,
-            "is_doc_type": False
-        }
-        os.remove(file_name)
-        return response_dict
+
+    response_dict = {
+        "labels": new_labels,
+        "scores": scores
+    }
+    os.remove(file_name)
+    return response_dict
+

@@ -10,7 +10,7 @@ RUN pip install pillow
 RUN pip install keras_applications
 RUN wget https://raw.githubusercontent.com/csailvision/places365/master/categories_places365.txt
 RUN git clone https://github.com/GKalliatakis/Keras-VGG16-places365
-RUN pip install keras python-dotenv kafka-python redis mongoengine
+RUN pip install keras python-dotenv kafka-python redis mongoengine requests python-logstash-async pyfiglet
 WORKDIR Keras-VGG16-places365
 EXPOSE 8000
 COPY . .
