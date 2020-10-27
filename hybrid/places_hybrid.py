@@ -30,7 +30,10 @@ def predict(file_name, doc=False):
         array_without_quotes = string_array_without_quotes.split(" ")
         array_without_quotes.pop()
         array_without_quotes.pop(0)
-        new_labels.append(array_without_quotes)
+        s=''
+        s.join(array_without_quotes)
+
+        new_labels.append(s)
 
     scores = [float(np_float) for np_float in scores]
 
@@ -39,6 +42,7 @@ def predict(file_name, doc=False):
         "labels": new_labels,
         "scores": scores
     }
+
     os.remove(file_name)
     return response_dict
 

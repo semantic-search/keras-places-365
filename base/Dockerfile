@@ -14,3 +14,4 @@ RUN pip install keras python-dotenv kafka-python redis mongoengine requests pyth
 WORKDIR Keras-VGG16-places365
 COPY . .
 CMD ["python", "main.py"]
+

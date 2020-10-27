@@ -112,9 +112,11 @@ if __name__ == "__main__":
                 ERR_LOGGER(f"{e} Exception in predict FILE ID {FILE_ID}")
                 os.remove(file_name)
                 continue
-
+            print(response)
             for label, score in zip(response["labels"], response['scores']):
                 if label not in final_labels:
+                    print(label)
+                    print(type(label))
                     final_labels.append(label.strip())
                     final_scores.append(score)
                 else:
