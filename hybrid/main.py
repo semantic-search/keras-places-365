@@ -121,9 +121,13 @@ if __name__ == "__main__":
                     final_scores.append(score)
                 else:
                     x = final_labels.index(label)
-                    score_to_check = final_scores[x]
-                    if score > score_to_check:
-                        final_scores[x] = score
+                    try:
+                        score_to_check = final_scores[x]
+                        if score > score_to_check:
+                            final_scores[x] = score
+                    except Exception as e:
+                        print("weird error came as there is nothing in labels but in scores")
+                        continue
 
             print("to_save audio", final_labels, final_scores)
             save_to_db(db_object, final_labels, final_scores)
